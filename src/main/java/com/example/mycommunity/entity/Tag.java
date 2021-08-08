@@ -1,10 +1,7 @@
 package com.example.mycommunity.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -15,20 +12,13 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@ToString
-@Table(name = "comment")
+@Data
 @EntityListeners(AuditingEntityListener.class)
-public class CommentEntity {
+public class Tag {
     @Id
     @GeneratedValue
     private Long id;
-    @JoinColumn(name = "comment_id")
-    private Long articleId;
-    private String content;
-    private String author;
-    private Long likeCount;
+    private String name;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @CreatedDate
@@ -39,7 +29,6 @@ public class CommentEntity {
     @LastModifiedDate
     @Column(nullable = false)
     private Date updateTime;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "commentId", orphanRemoval = true)
-    @ToString.Exclude
-    private List<ReplyEntity> replyList;
+    @ManyToMany
+    private List<Article> articles;
 }

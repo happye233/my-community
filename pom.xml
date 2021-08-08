@@ -23,20 +23,20 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <!--redis缓存-->
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
+        </dependency>-->
         <!--rest接口-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
         <!--安全-->
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency>-->
         <!--模板引擎-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -48,17 +48,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--安全模板-->
-        <dependency>
+<!--        <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity5</artifactId>
-        </dependency>
+        </dependency>-->
         <!--开发工具-->
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
             <optional>true</optional>
-        </dependency>
+        </dependency>-->
         <!--数据库驱动-->
         <dependency>
             <groupId>mysql</groupId>
@@ -78,21 +78,21 @@
             <scope>test</scope>
         </dependency>
         <!--安全-->
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
         <!--缓存-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-rest-hal-browser</artifactId>
             <version>3.3.9.RELEASE</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
     <build>

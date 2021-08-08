@@ -1,12 +1,12 @@
 package com.example.mycommunity.repository;
 
-import com.example.mycommunity.entity.TagEntity;
+import com.example.mycommunity.entity.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import javax.persistence.Cacheable;
 
-@RepositoryRestResource(collectionResourceRel = "tag", path = "tag")
+@RepositoryRestResource
 @Cacheable
-public interface TagRepository extends JpaRepository<TagEntity, Long> {
+public interface TagRepository extends JpaRepository<Tag, Long> {
 }
