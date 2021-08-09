@@ -34,7 +34,7 @@
         <li th:unless="${page.hasPrevious()}" class="disabled">
             <span aria-hidden="true">&laquo;</span>
         </li>
-
+        <!--中间页-->
         <li th:each="index : ${#numbers.sequence(startIndex,endIndex)}" th:class="${index==currentIndex}?'active'">
             <!--当前页-->
             <span th:if="${index==currentIndex}" th:text="${index}"><span class="sr-only">(current)</span></span>
