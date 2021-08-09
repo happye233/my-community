@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link th:replace="head.html">
+</head>
+<body>
+
+<div>
+    <div th:if="${page}!=null">
+        <h3>帖子</h3>
+        <ul th:each="article : ${page}">
+            <li>
+                <div>
+                    <div th:text="${article.title}"></div>
+                    <div th:text="${article.viewCount}"></div>
+                    <div th:text="${article.createTime}"></div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<!--分页组件-->
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <!--上一页-->
+        <li th:if="${page.hasPrevious()}">
+            <a th:href="@{/index(page=${page.previousPageable().pageNumber+1})}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li th:unless="${page.hasPrevious()}" class="disabled">
+            <span aria-hidden="true">&laquo;</span>
+        </li>
+
+        <li th:each="index : ${#numbers.sequence(startIndex,endIndex)}" th:class="${index==currentIndex}?'active'">
+            <!--当前页-->
+            <span th:if="${index==currentIndex}" th:text="${index}"><span class="sr-only">(current)</span></span>
+            <!--非当前页-->
+            <a th:unless="${index==currentIndex}" th:text="${index}" th:href="@{/index(page=${index})}"></a>
+        </li>
+        <!--下一页-->
+        <li th:if="${page.hasNext()}">
+            <a th:href="@{/index(page=${page.nextPageable().pageNumber+1})}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        <li th:unless="${page.hasNext()}" class="disabled">
+            <span aria-hidden="true">&raquo;</span>
+        </li>
+    </ul>
+</nav>
+
+</body>
+</html>
